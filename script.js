@@ -122,10 +122,13 @@ console.log("Exercise 1 Correct Result: ", [
 let inventorNames = [];
 
 // Enter your solution code here:
-
-inventorNames = inventors.map((inventors) => {
-  return ` First : ${inventors.first} , second : ${inventors.last}`;
+inventorNames = inventors.map((inventor) => {
+  return {
+    first: inventor.first,
+    last: inventor.last,
+  };
 });
+
 // Check your return value:
 console.log("Exercise 2 My Result: ", inventorNames);
 console.log("Exercise 2 Correct Result: ", [
@@ -153,6 +156,7 @@ let sortedByBirthYear = [];
 sortedByBirthYear = inventors.sort((a, b) => {
   return a.year - b.year;
 });
+
 // Check your return value:
 console.log("Exercise 3 My Result: ", sortedByBirthYear);
 console.log("Exercise 3 Correct Result: ", [
@@ -169,6 +173,7 @@ console.log("Exercise 3 Correct Result: ", [
   { first: "Albert", last: "Einstein", year: 1879, passed: 1955 },
   { first: "Katherine", last: "Blodgett", year: 1898, passed: 1979 },
 ]);
+
 // Array.prototype.find()
 
 // 4. Use Array.prototype.find() to identify the inventor with the first name 'Ada' from an array of inventor objects
@@ -205,11 +210,11 @@ console.log("Exercise 4 Correct Result: ", {
 let firstLast = [];
 
 // Enter your solution code here:
-
 firstLast = people.map((person) => {
   let arr = person.split(",");
   return `${arr[1]},${arr[0]}`;
 });
+
 // Check your return value:
 console.log("Exercise 5 My Result: ", firstLast);
 console.log("Exercise 5 Correct Result: ", [
@@ -284,10 +289,13 @@ console.log("Exercise 6 Correct Result: ", true);
 let isEveryone19OrOlder = null;
 
 // Enter your solution code here:
+isEveryone19OrOlder = devs.every((dev) => {
+  let birth = dev.year;
+  let curryear = new Date().getFullYear();
+  return curryear - birth >= 19;
+});
 
-isEveryone19OrOlder = devs.some((people) => people.year - 2024 >= 19);
-
-// Check your return value:
+// Check your return value
 console.log("Exercise 7 My Result: ", isEveryone19OrOlder);
 console.log("Exercise 7 Correct Result: ", false);
 
@@ -300,6 +308,7 @@ console.log("Exercise 7 Correct Result: ", false);
 let commentById = {};
 
 // Enter your solution code here:
+
 commentById = comments.find((comment) => comment.id === 823423);
 
 // Check your return value:
@@ -315,9 +324,10 @@ console.log("Exercise 8 Correct Result: ", { text: "Super good", id: 823423 });
 let idx = null;
 
 // Enter your solution code here:
-
 idx = comments.findIndex((comment) => comment.id === 123523);
 
 // Check your return value:
 console.log("Exercise 9 My Result: ", idx);
 console.log("Exercise 9 Correct Result: ", 3);
+
+// Array.prototype.reduce()
